@@ -19,6 +19,46 @@ body {
     margin-top: -10px;
 }
 
+.header-text {
+    margin-right: auto; /* Push the search bar to the right */
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* Center the search bar and button vertically */
+}
+
+#search-bar {
+    font-family: 'Cabin';
+    padding: 0.75em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 0.5em; /* Space between input and button */
+    width: 200px;
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+    box-shadow: 0 2px 10px #00c38577; /* Green aura effect */
+}
+
+#search-bar:focus {
+    outline: none; /* Remove default outline */
+}
+
+#search-btn {
+    padding: 0.75em 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: #00c385; /* Green background */
+    box-shadow: 0 5px 15px #00c38577;
+    color: white; /* White text */
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    box-shadow: 0 10px 25px #00c38577;
+    color: #fff;
+    cursor: pointer;
+}
+
 .stats-container {
     display: flex;
     align-items: center;

@@ -197,3 +197,37 @@ firstGameContainer.append(firstGameName);
 const secondGameName = document.createElement('div');
 secondGameName.innerHTML = `${secondGame.name}`;
 secondGameContainer.append(secondGameName);
+
+/************************************************************************************
+ * MAKING THE SEARCH BAR FUNCTIONAL
+ */
+
+const searchBar = document.getElementById('search-bar');
+const searchBtn = document.getElementById('search-btn');
+
+function searchGames(){
+    const searchTerm = searchBar.value.toLowerCase().trim();
+    const filteredGames = GAMES_JSON.filter((game) => {
+        return game.name.toLowerCase().trim().includes(searchTerm);
+    })
+    deleteChildElements(gamesContainer);
+    addGamesToPage(filteredGames);
+
+    if(filteredGames.length === 0){
+        const noResultMessage = document.createElement('div');
+        noResultMessage.innerHTML = `<p>No games found for "${searchBar.value}".</p>`;
+        gamesContainer.append(noResultMessage);
+        gamesContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+    else gamesContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Add event listener for the search button
+searchBtn.addEventListener('click', () => {
+    searchGames()
+});
+
+// Add event listener for the Enter key in the search bar
+searchBar.addEventListener('keypress', (event) => {
+    if(event.key === 'Enter') searchGames();
+});
